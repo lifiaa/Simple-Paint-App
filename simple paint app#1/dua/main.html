@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Paint App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer src="main.js"></script>
+
+</head>
+<body>
+    
+    <div class="container">
+        <section class="tools-board">
+            <!-- == Section Shapes == -->
+            <div class="row">
+                <label class="title">Shapes</label>
+                <ul class="options shapes">
+                    <li class="option tool" id="rectangle">
+                        <i class="ri ri-rectangle-line"></i>
+                        <span>Rectangle</span>
+                    </li>
+
+                    <li class="option tool" id="circle">
+                        <i class="ri ri-circle-line"></i>
+                        <span>Circle</span>
+                    </li>
+
+                    <li class="option tool" id="triangle">
+                        <i class="ri ri-triangle-line"></i>
+                        <span>Triangle</span>
+                    </li>
+
+                    <li class="option">
+                        <input type="checkbox" id="fill-color">
+                        <label for="fill-color" style="font-weight: 400;">Fill Color</label>
+                    </li>
+                </ul>
+            </div>
+            <!-- == Section Options == -->
+            <div class="row">
+                <label class="title">Options</label>
+                <ul class="options opsi">
+                    <li class="option active tool" id="brush">
+                        <i class="ri ri-brush-fill"></i>
+                        <span>Brush</span>
+                    </li>
+
+                    <li class="option tool" id="eraser">
+                        <i class="ri ri-eraser-line"></i>
+                        <span>Eraser</span>
+                    </li>
+                    
+                    <li class="option">
+                        <input type="range" id="size-slider" min="1" max="100" value="7">
+                    </li>
+                </ul>
+            </div>
+            <!-- == Section Colors == -->
+            <div class="row colors">
+                <label class="title">Colors</label>
+                <ul class="options">
+                    <li class="option selected">
+                        <input type="color" id="color-picker" value="#fff">
+                    </li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                </ul>
+            </div>
+            <!-- == Buttons == -->
+            <div class="row buttons">
+                <button class="clear-canvas">Clear Canvas</button>
+                <button class="save-canvas">Save Canvas</button>
+            </div>
+        </section>
+
+        <!-- == Section Canvas == -->
+        <section class="drawing-board">
+            <canvas></canvas>
+        </section>
+
+    </div>
+</body>
+</html>

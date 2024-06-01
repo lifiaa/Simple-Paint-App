@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #4a98af;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 3rem 10px;
+    max-width: 1050px;
+    height: 100vh;
+}
+section{
+    background: #fff;
+    border-radius: 7px;
+    /* padding: 1rem; */
+}
+.tools-board{
+    width: 250px;
+    padding: 15px 22px ;
+}
+.row{
+    margin-bottom: 16px;
+}
+.row label{
+    font-weight: 600;
+}
+.row .options{
+    margin: 6px 0 0 5px;
+}
+.option{
+    cursor: pointer;
+}
+.row .options .option{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.option:is(:hover, .active) i{
+    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+.option :where(span, label){
+    padding-left: 10px;   
+    cursor: pointer;
+    color: #5a6168;
+}
+.option:is(:hover, .active) :where(span, label){
+    color: #4a98af;
+}
+.option #fill-color{
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+}
+
+#fill-color:checked ~ label{
+    color: #4a98af;
+}
+
+.color-pick{
+    border: none;
+    margin-left: 10px;
+}
+.option #size-slider{
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+}
+.option #color-picker{
+    opacity: 0;
+    cursor: pointer;
+}
+.colors{
+    display: flex;
+    flex-direction: column;
+}
+.colors .options{
+    display: flex;
+    justify-content: space-between;
+}
+.colors .option{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin: 3px;
+    position: relative;
+}
+
+.colors .option:nth-child(1){
+    background: #fff;
+    border: 1px solid #bfbfbf;
+}
+.colors .option:nth-child(2){
+    background: #000;
+}
+.colors .option:nth-child(3){
+    background: #e02020;
+}
+.colors .option:nth-child(4){
+    background: #6dd400;
+}
+.colors .option:nth-child(5){
+    background: #4a98f7;
+}
+.colors .option.selected::before{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 51%;
+    height: 13px;
+    width: 13px;
+    background: inherit;
+    border-radius: inherit;
+    border: 2px solid #fff;
+    transform: translate(-50%, -50%);
+}
+.colors .option:first-child.selected ::before{
+    border-color:#686767;
+}
+
+.buttons button{
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 11px 0;
+    margin-bottom: 13px;
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.buttons .clear-canvas{
+    color: #6c757d;
+    border: 1px solid #6c757d;
+    transform: all ease .3s;
+}
+.buttons .clear-canvas:hover{
+    color: #fff;
+    background: #6c757d;
+    border: 1px solid #6c757d;
+}
+.buttons .save-canvas{
+    background: #4a98af;
+    border: 1px solid #4a98af;
+}
+.buttons .save-canvas:hover{
+    filter: contrast(1.5);
+}
+.drawing-board{
+    flex: 1;
+}
+.drawing-board canvas{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
+@media screen and (max-width: 767px) {
+    .container{
+        flex-direction: column;
+    }
+    .tools-board{
+        width: auto;
+    }
+    .tools-board :where(.shapes, .opsi){
+        display: flex;
+        flex-direction: row;
+    }
+    .tools-board .shapes li:not(first-child), .tools-board .opsi li:not(first-child){
+        margin-left: 1.5rem;
+    }
+    .colors .options{
+        margin: 0 1.5rem;
+    }
+    .colors .option{
+        width: 40px;
+        height: 40px;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin:0 1.5rem;
+    }
+    .drawing-board canvas{
+        height: 90vh;
+    }
+}
